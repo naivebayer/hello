@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <input type='button' id='jishi' value='开始计时' onclick='getTim();'/>
+  <p>
+Time passed
+  </p>
+  <input id='text1'/>s
+   <script>
+	var jishi=null,text1=null,k=0,timer=null;
+	function getTim(){
+		var jishi=document.getElementById("jishi");
+		var text1=document.getElementById("text1");
+		switch(jishi.value){
+		case '开始计时':window.status='单击按钮，开始计时';
+		case '继续计时':
+			jishi.value='单击暂停';
+			window.status='';
+			timer=setInterval(function(){
+			text1.value=k;
+			k++;	
+			},1000);break;
+		case '单击暂停':
+			window.status='单击按钮，开始计时';
+			clearInterval(timer);
+			jishi.value='继续计时';break;
+		default:break;
+		}
+	}
+  </script>
+ </body>
+ </html>
